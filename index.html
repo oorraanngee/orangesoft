@@ -1,0 +1,412 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>OrangeSoft Corporation - Передовые программные решения</title>
+    <!-- Использование строго корпоративного логотипа в качестве фавикона -->
+    <link rel="icon" type="image/svg+xml" href="OSb.svg">
+    <style type="text/css">
+        /* Базовые настройки в стиле Windows XP */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #FAFAFA;
+            font-family: "Tahoma", "Verdana", Arial, sans-serif;
+            font-size: 11px;
+            color: #000000;
+        }
+
+        a { color: #0033CC; text-decoration: none; }
+        a:hover { text-decoration: underline; color: #FF6600; }
+
+        /* Имитация объемной синей шапки корпорации (стиль Luna) */
+        .top-banner {
+            background: #003399;
+            background: linear-gradient(to bottom, #0045CC 0%, #002D80 100%);
+            border-bottom: 2px solid #FF9900;
+            color: #FFFFFF;
+            padding: 4px 20px;
+            font-size: 10px;
+            text-align: right;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .top-banner a { color: #FFFFFF; font-weight: bold; }
+        .top-banner a:hover { color: #FFCC00; text-decoration: none; }
+
+        /* Белая зона с логотипом */
+        .header-logo-area {
+            background: #FFFFFF;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #D4D0C8;
+        }
+        .header-logo-area img {
+            height: 40px;
+            border: none;
+        }
+        .header-tagline {
+            font-family: "Trebuchet MS", "Arial", sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: #888888;
+        }
+
+        /* Панель вкладок (имитация сглаженных углов и градиентов MS 2001) */
+        .nav-tabs {
+            background: #EBEBEB;
+            background: linear-gradient(to bottom, #F9F9F9 0%, #E0E0E0 100%);
+            padding: 10px 20px 0 20px;
+            border-bottom: 3px solid #0045CC;
+        }
+        
+        .tab-btn {
+            display: inline-block;
+            background: #0045CC;
+            background: linear-gradient(to bottom, #005CE6 0%, #003399 100%);
+            color: #FFFFFF;
+            font-weight: bold;
+            padding: 6px 18px;
+            margin-right: 4px;
+            border-radius: 6px 6px 0 0; /* Сглаженные верхние углы */
+            border: 1px solid #002D80;
+            border-bottom: none;
+            cursor: pointer;
+            font-size: 11px;
+        }
+        .tab-btn:hover {
+            background: linear-gradient(to bottom, #1A75FF 0%, #0045CC 100%);
+            text-decoration: none;
+        }
+        .tab-btn.active {
+            background: #FFFFFF;
+            color: #000000;
+            border: 1px solid #0045CC;
+            border-bottom: 3px solid #FFFFFF;
+            margin-bottom: -3px;
+            padding-top: 7px;
+        }
+
+        /* Основной контейнер */
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: table;
+            background-color: #FFFFFF;
+            border-left: 1px solid #D4D0C8;
+            border-right: 1px solid #D4D0C8;
+            min-height: 500px;
+        }
+
+        /* Сайдбар */
+        .sidebar {
+            display: table-cell;
+            width: 220px;
+            background: #F4F4F4;
+            vertical-align: top;
+            padding: 15px;
+            border-right: 1px solid #D4D0C8;
+        }
+
+        .sidebar-box {
+            border: 1px solid #A5ACB2;
+            background: #FFFFFF;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            background: linear-gradient(to right, #0045CC 0%, #6699FF 100%);
+            color: #FFFFFF;
+            font-weight: bold;
+            padding: 5px 10px;
+            font-size: 11px;
+        }
+
+        .sidebar-content {
+            padding: 10px;
+        }
+        .sidebar-content ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar-content li {
+            padding: 3px 0;
+            border-bottom: 1px dotted #CCCCCC;
+        }
+        .sidebar-content li::before {
+            content: "» ";
+            color: #FF9900;
+            font-weight: bold;
+        }
+
+        /* Контентная область */
+        .content {
+            display: table-cell;
+            vertical-align: top;
+            padding: 25px 35px;
+        }
+
+        .page-section {
+            display: none;
+        }
+        .page-section.active {
+            display: block;
+        }
+
+        h1 {
+            color: #003399;
+            font-family: "Trebuchet MS", sans-serif;
+            font-size: 22px;
+            font-weight: normal;
+            margin-top: 0;
+            border-bottom: 1px solid #E0E0E0;
+            padding-bottom: 5px;
+        }
+
+        h2 {
+            color: #0045CC;
+            font-size: 14px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* Карточки продуктов с градиентами */
+        .product-card {
+            border: 1px solid #B0B0B0;
+            border-radius: 5px;
+            background: linear-gradient(to bottom, #FFFFFF 0%, #F5F5F5 100%);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #003399;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            color: #333333;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        /* Корпоративная кнопка */
+        .btn-action {
+            display: inline-block;
+            background: linear-gradient(to bottom, #F9F9F9 0%, #E0E0E0 100%);
+            border: 1px solid #999999;
+            border-radius: 3px;
+            padding: 5px 15px;
+            color: #000000 !important;
+            font-weight: bold;
+            font-size: 11px;
+            text-decoration: none !important;
+            box-shadow: inset 1px 1px 0px #FFFFFF;
+        }
+        .btn-action:hover {
+            background: linear-gradient(to bottom, #FFFFFF 0%, #EFEFEF 100%);
+            border-color: #666666;
+        }
+        .btn-action:active {
+            background: #D4D0C8;
+            box-shadow: inset 1px 1px 2px #999999;
+        }
+
+        /* Подвал */
+        .footer {
+            background: #F4F4F4;
+            border-top: 1px solid #D4D0C8;
+            text-align: center;
+            padding: 20px;
+            font-size: 10px;
+            color: #666666;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-left: 1px solid #D4D0C8;
+            border-right: 1px solid #D4D0C8;
+            box-sizing: border-box;
+        }
+        .footer img {
+            height: 25px;
+            margin-bottom: 10px;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-banner">
+    Служба поддержки пользователей | <a href="#" onclick="switchPage('contact'); return false;">Связаться с нами</a> | <a href="#">OrangeSoft Worldwide</a>
+</div>
+
+<div class="header-logo-area">
+    <img src="OSb.svg" alt="OrangeSoft Logo">
+    <div class="header-tagline">Инновации. Надежность. Безопасность.</div>
+</div>
+
+<div class="nav-tabs">
+    <div class="tab-btn active" id="tab-home" onclick="switchPage('home')">Главная страница</div>
+    <div class="tab-btn" id="tab-products" onclick="switchPage('products')">Продукты и решения</div>
+    <div class="tab-btn" id="tab-docs" onclick="switchPage('docs')">Техническая документация</div>
+    <div class="tab-btn" id="tab-about" onclick="switchPage('about')">О корпорации</div>
+</div>
+
+<div class="main-container">
+    <div class="sidebar">
+        <div class="sidebar-box">
+            <div class="sidebar-header">Быстрый переход</div>
+            <div class="sidebar-content">
+                <ul>
+                    <li><a href="#" onclick="switchPage('products'); return false;">Каталог ПО</a></li>
+                    <li><a href="#">Обновления безопасности</a></li>
+                    <li><a href="#">Загрузки</a></li>
+                    <li><a href="#">База знаний (KB)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar-box">
+            <div class="sidebar-header">Новости платформы</div>
+            <div class="sidebar-content" style="font-size: 10px; color: #555555;">
+                <b>2026</b><br>
+                Состоялся релиз обновленной версии File Replacer 2000 (v0.6) с интегрированным механизмом безопасного уничтожения данных (Secure Erase).<br><br>
+                Запущен новый шлюз мониторинга серверов (UV Server Monitor).
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        
+        <!-- СТРАНИЦА: ГЛАВНАЯ -->
+        <div id="page-home" class="page-section active">
+            <h1>Добро пожаловать в OrangeSoft</h1>
+            <p>
+                Корпорация <b>OrangeSoft</b> является разработчиком высокопроизводительного системного и сетевого программного обеспечения. Начиная с 2001 года, наши продукты обеспечивают стабильную работу корпоративного сектора и предоставляют энтузиастам надежные инструменты для администрирования файловых систем и серверной инфраструктуры.
+            </p>
+            <p>
+                Мы придерживаемся строгих стандартов качества: наш программный код оптимизирован для минимизации потребления системных ресурсов, а пользовательские интерфейсы спроектированы для максимальной продуктивности в рабочей среде.
+            </p>
+            <h2>Ключевые направления разработки</h2>
+            <ul>
+                <li>Инструментарий для глубокой модификации файлов и бинарного кода.</li>
+                <li>Автоматизированные системы мониторинга сетевых узлов и серверов.</li>
+                <li>Утилиты для управления правами доступа и системными метаданными.</li>
+            </ul>
+        </div>
+
+        <!-- СТРАНИЦА: ПРОДУКТЫ -->
+        <div id="page-products" class="page-section">
+            <h1>Продукты и решения</h1>
+            <p>Ниже представлен перечень актуальных версий программного обеспечения OrangeSoft. Вы можете ознакомиться с характеристиками продуктов и перейти на специализированные порталы для загрузки дистрибутивов.</p>
+
+            <div class="product-card">
+                <div class="product-title">File Replacer 2000 (v0.6)</div>
+                <div class="product-desc">
+                    Флагманский комплекс для управления файлами проектов и редактирования исходного кода. Система оснащена модулем аппаратной виртуализации для работы с объемными лог-файлами (свыше 150 МБ), просмотрщиком бинарного Hex-кода, аудиоредактором PCM, а также механизмом блокировки метаданных на уровне ОС Windows.<br><br>
+                    В новой версии интегрирована функция деструктивного стирания данных (затирка нулями), полностью исключающая возможность их восстановления специализированным ПО.
+                </div>
+                <a href="https://file-replacer-2000.vercel.app/" target="_blank" class="btn-action">Официальный портал File Replacer ▸</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-title">UV Server Monitor (Система аналитики)</div>
+                <div class="product-desc">
+                    Высокоточная панель управления и мониторинга для непрерывного контроля за состоянием серверов. Инструмент поддерживает протоколы Query, автоматически высчитывает медианную задержку сети (Ping), кумулятивный показатель безотказной работы (Uptime) и определяет статус "Спящего режима" для прокси-серверов.<br><br>
+                    Вся статистика собирается и хранится строго локально на стороне клиента с использованием технологий Web Worker, обеспечивая абсолютную конфиденциальность инфраструктуры.
+                </div>
+                <a href="https://oorraanngee.github.io/" target="_blank" class="btn-action">Открыть UV Server Monitor ▸</a>
+            </div>
+        </div>
+
+        <!-- СТРАНИЦА: ДОКУМЕНТАЦИЯ -->
+        <div id="page-docs" class="page-section">
+            <h1>Техническая документация</h1>
+            <p>
+                Центр технической поддержки OrangeSoft предоставляет исчерпывающую документацию по эксплуатации программных продуктов, использованию интерфейсов командной строки (CLI) и настройке конфигурационных INI-файлов.
+            </p>
+            <p>
+                <i>Раздел находится в стадии синхронизации с базой знаний. Для получения спецификаций к конкретному приложению, пожалуйста, воспользуйтесь встроенной справочной системой (клавиша F1) внутри установленного продукта.</i>
+            </p>
+        </div>
+
+        <!-- СТРАНИЦА: О КОМПАНИИ -->
+        <div id="page-about" class="page-section">
+            <h1>О корпорации OrangeSoft</h1>
+            <p>
+                Основанная в 2001 году, компания OrangeSoft прошла путь от создания небольших утилит для сред .NET Framework 1.0 до разработки комплексных аналитических систем и редакторов метаданных системного уровня.
+            </p>
+            <p>
+                <b>Наши принципы:</b>
+            </p>
+            <ul>
+                <li><b>Производительность:</b> Отказ от тяжеловесных фреймворков в пользу скорости отклика.</li>
+                <li><b>Прозрачность:</b> Отсутствие скрытых фоновых служб и несанкционированной телеметрии.</li>
+                <li><b>Обратная совместимость:</b> Поддержка операционных систем начиная с семейства Windows XP SP3.</li>
+            </ul>
+        </div>
+
+        <!-- СТРАНИЦА: КОНТАКТЫ -->
+        <div id="page-contact" class="page-section">
+            <h1>Связаться с нами</h1>
+            <p>Для обращения в службу технической поддержки или отдел корпоративного лицензирования, пожалуйста, воспользуйтесь соответствующими каналами связи.</p>
+            <p>
+                Электронная почта технического отдела:<br>
+                <a href="mailto:support@orangesoft.local">support@orangesoft.local</a>
+            </p>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    <img src="OSb.svg" alt="OrangeSoft Logo"><br>
+    © 2001-2026 OrangeSoft Corporation. Все права защищены.<br>
+    Любое копирование материалов веб-узла допускается только с письменного разрешения корпорации.<br>
+    <br>
+    <a href="#" style="color: #666666;">Политика конфиденциальности</a> | <a href="#" style="color: #666666;">Правовая информация</a>
+</div>
+
+<!-- Скрипт для работы вкладок (имитация переходов по страницам) -->
+<script type="text/javascript">
+    function switchPage(pageId) {
+        // Скрываем все страницы
+        var pages = document.getElementsByClassName('page-section');
+        for (var i = 0; i < pages.length; i++) {
+            pages[i].classList.remove('active');
+        }
+        
+        // Сбрасываем активность со всех вкладок
+        var tabs = document.getElementsByClassName('tab-btn');
+        for (var j = 0; j < tabs.length; j++) {
+            tabs[j].classList.remove('active');
+        }
+
+        // Показываем нужную страницу
+        var selectedPage = document.getElementById('page-' + pageId);
+        if (selectedPage) {
+            selectedPage.classList.add('active');
+        }
+
+        // Подсвечиваем нужную вкладку (если она есть на панели)
+        var selectedTab = document.getElementById('tab-' + pageId);
+        if (selectedTab) {
+            selectedTab.classList.add('active');
+        }
+    }
+</script>
+
+</body>
+</html>
